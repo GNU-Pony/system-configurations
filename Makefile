@@ -4,7 +4,7 @@ DATA = /share
 LICENSES = $(DATA)/licenses
 PKGNAME = system-configurations
 
-SRC_ETC = host.conf  hosts  issue  nsswitch.conf  os-release  securetty  shells
+SRC_ETC = host.conf  hosts  issue  ld.so.conf  nsswitch.conf  os-release  pony-release  securetty  shells
 
 
 .PHONY: all clean
