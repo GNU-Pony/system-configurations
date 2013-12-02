@@ -1,11 +1,11 @@
-PREFIX = /usr
-SYSCONF = /etc
-DATA = /share
-LICENSES = $(DATA)/licenses
-PKGNAME = system-configurations
+PREFIX    = /usr
+SYSCONF   = /etc
+DATA      = /share
+LICENSES  = $(DATA)/licenses
+PKGNAME   = system-configurations
 
-SRC_ETC = host.conf  hosts  issue  ld.so.conf  nsswitch.conf  os-release  pony-release  securetty  shells
-TOUCH_ETC = resolv.conf
+SRC_ETC   = host.conf  hosts  issue  ld.so.conf  nsswitch.conf  os-release  pony-release  securetty  shells
+TOUCH_ETC = resolv.conf  crypttab
 
 
 .PHONY: all clean
