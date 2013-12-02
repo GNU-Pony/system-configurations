@@ -6,8 +6,8 @@ umask 022
 
 # Set paths to commands
 PATH="/usr/local/sbin":"/usr/local/bin":"/usr/sbin":"/usr/bin":"/sbin":"/bin"
-if [ ! "${UID}" = 0 ]; then # normal users do not need sbin
-    PATH="/usr/local/bin":"/usr/bin":"/bin"
+if [ ! "${UID}" = 0 ]; then # normal users do not need sbin, but may wany games
+    PATH="/usr/local/bin":"/usr/bin":"/bin":"/usr/local/games/bin":"/usr/games/bin"
 fi
 if [ -n "${HOME}" ]; then # use ~/.local if we have a home yet (are logged in)
     PATH="${HOME}/.local/bin":"${PATH}"
