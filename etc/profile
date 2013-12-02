@@ -31,7 +31,7 @@ if [ -d /etc/profile.d/ ]; then
 fi
 
 
-# Source global bash config
+# Source global Bash configurations
 if [ -n "${PS1}" ] && [ -n "${BASH}" ] && [ -r /etc/bash.bashrc ]; then
     . /etc/bash.bashrc
 fi
