@@ -1,0 +1,6 @@
+# -*- conf -*-
+# /etc/fstab: static file system information 
+
+# <device>  <mountpoint>  <filesystem>   <options>     <dump>  <pass>
+tmpfs       /tmp          tmpfs          nodev,nosuid  0       0
+
