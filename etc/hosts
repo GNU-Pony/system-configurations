@@ -1,4 +1,4 @@
-127.0.0.1  localhost.localdomain    localhost
+127.0.0.1  localhost.localdomain    localhost   canterlot
 ::1        localhost6.localdomain6  localhost6  localhost  ip6-localhost  ip6-loopback
 fe00::0    ip6-localnets
 ff00::0    ip6-mcastprefix
