@@ -4,7 +4,7 @@ DATA      = /share
 LICENSES  = $(DATA)/licenses
 PKGNAME   = system-configurations
 
-SRC_ETC   = fstab  host.conf  hosts  issue  ld.so.conf  nsswitch.conf  os-release  pony-release  securetty  shells
+SRC_ETC   = fstab  host.conf  hosts  issue  ld.so.conf  nsswitch.conf  os-release  pony-release  profile  securetty  shells
 TOUCH_ETC = resolv.conf  crypttab
 
 
