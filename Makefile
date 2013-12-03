@@ -1,12 +1,19 @@
-PREFIX    = /usr
-SYSCONF   = /etc
-DATA      = /share
-LICENSES  = $(DATA)/licenses
-PKGNAME   = system-configurations
+PREFIX       = /usr
+SYSCONF      = /etc
+BIN          = /bin
+DATA         = /share
+LICENSES     = $(DATA)/licenses
+PKGNAME      = system-configurations
+DEFAULT_SH   = bash
 
-SRC_ETC   = fstab          host.conf   hosts         issue    ld.so.conf  login.defs  \
-            nsswitch.conf  os-release  pony-release  profile  securetty   shells
-TOUCH_ETC = resolv.conf    crypttab
+SRC_ETC      = fstab          host.conf   hosts         issue    ld.so.conf  login.defs  \
+               nsswitch.conf  os-release  pony-release  profile  securetty   shells
+TOUCH_ETC    = resolv.conf    crypttab
+
+
+_ROOT        = grep -o / | sed -e ':a;N;$!ba;s:\n::g' | sed -e 's:/:../:g' | sed -e 's:/$$::g'
+SYSCONF_ROOT = $(shell echo "$(SYSCONF)" | $(_ROOT))
+SYSCONF_BIN  = $(shell echo "$(SYSCONF)" | $(_ROOT))
 
 
 .PHONY: all clean
@@ -15,10 +22,25 @@ clean:
 
 
 .PHONY: install
-install:
+install: install-license install-files install-links
+
+
+.PHONY: install-files
+install-files:
+	install -dm755 -- "$(DESTDIR)$(SYSCONF)"
+	ln -sf -- "$(SYSCONF_ROOT)$(BIN)/$(DEFAULT_SH)" "$(DESTDIR)$(SYSCONF)/sh"
+	ln -sf -- "$(SYSCONF_BIN)$(SYSCONF)/sh"         "$(DESTDIR)$(BIN)/sh"
+
+
+.PHONY: install-files
+install-files:
 	install -dm755 --                                     "$(DESTDIR)$(SYSCONF)"
 	install  -m644 -- $(foreach S, $(SRC_ETC), etc/$(S))  "$(DESTDIR)$(SYSCONF)"
 	touch          -- $(foreach S, $(TOUCH_ETC), "$(DESTDIR)$(SYSCONF)"/$(S))
+
+
+.PHONY: install-license
+install-license:
 	install -dm755 --                                     "$(DESTDIR)$(PREFIX)$(LICENSES)/$(PKGNAME)"
 	install  -m644 -- LICENSE                             "$(DESTDIR)$(PREFIX)$(LICENSES)/$(PKGNAME)"
 
