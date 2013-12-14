@@ -1,6 +1,10 @@
 # -*- conf -*-
 # /etc/fstab: static file system information 
 
-# <device>  <mountpoint>  <filesystem>  <options>     <dump>  <pass>
-tmpfs       /tmp          tmpfs         nodev,nosuid  0       0
+# <device>  <mountpoint>  	<filesystem>  <options>     <dump>  <pass>
+tmpfs       /tmp          	tmpfs         nodev,nosuid  0       0
+#mqueue	    /dev/mqueue		mqueue	      defaults	    0	    0
+#hugetlbfs  /dev/hugepages	hugetlbfs     defaults	    0	    0
+#debugfs    /sys/kernel/debug	debugfs	      defaults	    0	    0
+#configfs   /sys/kernel/config	configfs      defaults	    0	    0
 
