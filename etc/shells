@@ -1,1 +1,5 @@
+# This file enumerates all valid login shells.
+# Be aware that some programs consult this file
+# to find out if a user is a normal user.
+
 /bin/sh
