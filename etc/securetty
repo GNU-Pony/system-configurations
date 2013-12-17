@@ -1,3 +1,7 @@
+# This file enumerates all TTY:s that the user root
+# can log into. These TTY:s are the basename of TTY
+# files in /dev
+
 console
 tty1
 tty2
