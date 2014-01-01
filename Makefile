@@ -2,6 +2,7 @@ PREFIX       = /usr
 SYSCONF      = /etc
 BIN          = /bin
 DATA         = /share
+ALTS         = /alternatives
 LICENSES     = $(DATA)/licenses
 PKGNAME      = system-configurations
 DEFAULT_SH   = bash
@@ -28,8 +29,8 @@ install: install-license install-files install-links
 .PHONY: install-files
 install-files:
 	install -dm755 -- "$(DESTDIR)$(SYSCONF)"
-	ln -sf -- "$(SYSCONF_ROOT)$(BIN)/$(DEFAULT_SH)" "$(DESTDIR)$(SYSCONF)/sh"
-	ln -sf -- "$(SYSCONF_BIN)$(SYSCONF)/sh"         "$(DESTDIR)$(BIN)/sh"
+	ln -sf -- "$(SYSCONF_ROOT)$(BIN)/$(DEFAULT_SH)" "$(DESTDIR)$(SYSCONF)$(ALTS)/sh"
+	ln -sf -- "$(SYSCONF_BIN)$(SYSCONF)$(ALTS)/sh"  "$(DESTDIR)$(BIN)/sh"
 
 
 .PHONY: install-files
