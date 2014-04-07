@@ -29,11 +29,11 @@ install: install-license install-files
 install-files:
 	install -dm755 --                                     "$(DESTDIR)$(SYSCONF)"
 	install  -m644 -- $(foreach S, $(SRC_ETC), etc/$(S))  "$(DESTDIR)$(SYSCONF)"
-	touch          -- $(foreach S, $(TOUCH_ETC), "$(DESTDIR)$(SYSCONF)"/$(S))
+	touch          -- $(foreach S, $(TOUCH_ETC),          "$(DESTDIR)$(SYSCONF)"/$(S))
 
 
 .PHONY: install-license
 install-license:
-	install -dm755 --                                     "$(DESTDIR)$(PREFIX)$(LICENSES)/$(PKGNAME)"
-	install  -m644 -- LICENSE                             "$(DESTDIR)$(PREFIX)$(LICENSES)/$(PKGNAME)"
+	install -dm755 --         "$(DESTDIR)$(PREFIX)$(LICENSES)/$(PKGNAME)"
+	install  -m644 -- LICENSE "$(DESTDIR)$(PREFIX)$(LICENSES)/$(PKGNAME)"
 
