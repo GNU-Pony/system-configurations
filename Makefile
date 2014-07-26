@@ -5,7 +5,8 @@ LICENSES     = $(DATA)/licenses
 PKGNAME      = system-configurations
 
 SRC_ETC      = fstab          host.conf   hosts         issue    ld.so.conf  login.defs  \
-               nsswitch.conf  os-release  pony-release  profile  securetty   shells
+               nsswitch.conf  os-release  pony-release  profile  securetty   shells      \
+               ld.so.conf.d/local.conf
 TOUCH_ETC    = resolv.conf    crypttab
 
 
@@ -20,9 +21,8 @@ install: install-license install-files
 
 .PHONY: install-files
 install-files:
-	install -dm755 --                                     "$(DESTDIR)$(SYSCONF)"
-	install  -m644 -- $(foreach S, $(SRC_ETC), etc/$(S))  "$(DESTDIR)$(SYSCONF)"
-	touch          -- $(foreach S, $(TOUCH_ETC),          "$(DESTDIR)$(SYSCONF)"/$(S))
+	$(foreach S,         $(SRC_ETC),install -Dm644 -- "etc/$(S)" "$(DESTDIR)$(SYSCONF)/$(S)";)
+	touch -- $(foreach S,$(TOUCH_ETC),                           "$(DESTDIR)$(SYSCONF)/$(S)")
 
 
 .PHONY: install-license
