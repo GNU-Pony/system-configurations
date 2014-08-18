@@ -1,7 +1,7 @@
 # -*- shell-script -*-
 
 # Only the creator of a file should have write access to it be default
-umask 022
+umask 027
 
 
 # Set paths to commands
